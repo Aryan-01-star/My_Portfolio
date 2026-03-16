@@ -12,8 +12,8 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="min-h-screen flex items-center pt-16 lg:pt-4 lg:items-start relative overflow-hidden">
       {/* Lightweight ambient glows — no blur filter */}
-      <div className="absolute top-0 left-1/4 w-[700px] h-[700px] glow-purple rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] glow-blue rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[350px] h-[350px] sm:w-[700px] sm:h-[700px] glow-purple rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] glow-blue rounded-full pointer-events-none" />
       <div className="absolute inset-0 bg-dot-grid pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-center items-center w-full relative z-10">
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
             className="flex flex-wrap gap-3 justify-center lg:justify-start pt-2"
           >
             <a
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
-          className="relative lg:w-1/2 w-full h-[40vh] sm:h-[50vh] lg:h-[70vh] flex items-center justify-center mt-30 lg:mt-40"
+          className="relative lg:w-1/2 w-full h-[35vh] sm:h-[50vh] lg:h-[70vh] flex items-center justify-center mt-8 sm:mt-16 lg:mt-40"
         >
           <DevSetup />
         </motion.div>

@@ -45,7 +45,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-14 sm:py-20 relative overflow-hidden">
       {/* World map background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[15]">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.15] hidden sm:flex">
         <div className="w-full max-w-5xl mx-auto">
           <WorldMap dots={mapDots} lineColor="#a955f76d" />
         </div>

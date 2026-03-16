@@ -20,15 +20,15 @@ function App() {
   return (
     <Router>
       <div className="bg-surface min-h-screen overflow-x-hidden text-white relative">
-        {/* Layer 1: Ambient glows */}
+        {/* Layer 1: Ambient glows — smaller on mobile */}
         <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute top-1/3 -left-32 w-[600px] h-[900px] glow-purple rounded-full opacity-60" />
-          <div className="absolute top-2/3 -right-32 w-[500px] h-[700px] glow-blue rounded-full opacity-60" />
+          <div className="absolute top-1/3 -left-32 w-[300px] h-[450px] sm:w-[600px] sm:h-[900px] glow-purple rounded-full opacity-60" />
+          <div className="absolute top-2/3 -right-32 w-[250px] h-[350px] sm:w-[500px] sm:h-[700px] glow-blue rounded-full opacity-60" />
         </div>
 
-        {/* Layer 2: Meteors — above glass, below navbar */}
-        <div className="fixed inset-0 pointer-events-none overflow-hidden z-20">
-          <Meteors number={8} />
+        {/* Layer 2: Meteors — fewer on mobile */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-20 hidden sm:block">
+          <Meteors number={5} />
         </div>
 
         {/* Layer 3: Single glass panel for all content */}

@@ -164,27 +164,29 @@ const DevSetup: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Floating tech badges */}
-        {floatingIcons.map((item, i) => (
-          <motion.div
-            key={item.label}
-            initial={{ opacity: 0, scale: 0, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.8 + i * 0.2, type: 'spring', stiffness: 180, damping: 15 }}
-            className="absolute z-20"
-            style={{ left: `${item.x}%`, top: `${item.y}%` }}
-          >
+        {/* Floating tech badges — hidden on mobile to prevent overlap */}
+        <div className="hidden sm:block">
+          {floatingIcons.map((item, i) => (
             <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3 + i * 0.7, repeat: Infinity, ease: 'easeInOut' }}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#12121e]/95 border border-white/[0.08] shadow-xl"
-              style={{ boxShadow: `0 4px 20px ${item.color}15` }}
+              key={item.label}
+              initial={{ opacity: 0, scale: 0, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.8 + i * 0.2, type: 'spring', stiffness: 180, damping: 15 }}
+              className="absolute z-20"
+              style={{ left: `${item.x}%`, top: `${item.y}%` }}
             >
-              <span className="text-sm" style={{ filter: `drop-shadow(0 0 4px ${item.color}60)` }}>{item.icon}</span>
-              <span className="text-[10px] text-gray-400 font-medium">{item.label}</span>
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3 + i * 0.7, repeat: Infinity, ease: 'easeInOut' }}
+                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#12121e]/95 border border-white/[0.08] shadow-xl"
+                style={{ boxShadow: `0 4px 20px ${item.color}15` }}
+              >
+                <span className="text-sm" style={{ filter: `drop-shadow(0 0 4px ${item.color}60)` }}>{item.icon}</span>
+                <span className="text-[10px] text-gray-400 font-medium">{item.label}</span>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
 
         {/* Monitor outer glow */}
         <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-b from-purple-500/20 via-transparent to-transparent opacity-50 pointer-events-none" />

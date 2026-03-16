@@ -145,6 +145,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 <div align="center">
 
-**[Live Demo](https://aryankumarpandey.vercel.app)** · **[LinkedIn](https://linkedin.com/in/aryankumar-pandey)** · **[GitHub](https://github.com/aryankumar-pandey)**
+**[Live Demo](https://aryan-01-star.github.io/My_Portfolio/)** · **[LinkedIn](https://linkedin.com/in/aryankumar-pandey)** · **[GitHub](https://github.com/aryankumar-pandey)**
 
 </div>

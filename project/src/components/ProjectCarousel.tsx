@@ -13,13 +13,15 @@ interface Project {
   techStack: string[];
 }
 
+const base = import.meta.env.BASE_URL;
+
 const projects: Project[] = [
   {
     id: 1,
     title: "OrganicHub",
     description: "Smart farming platform leveraging AI, real-time weather, and soil data — helping farmers reduce water and fertilizer use by 25%",
     tags: ["Full-Stack", "AI", "REST API"],
-    image: "https://www.shutterstock.com/image-vector/farming-drone-farm-management-tablet-600nw-2103415382.jpg",
+    image: `${base}organichub.png`,
     demoUrl: "https://organichub-akp.netlify.app/",
     githubUrl: "https://github.com/Aryan-01-star/OrganicHub.git",
     techStack: ["JavaScript", "CSS", "RestAPI"]
@@ -27,19 +29,19 @@ const projects: Project[] = [
   {
     id: 2,
     title: "StudySphere",
-    description: "AI-enabled Study Portal with quiz games, flow chart AI, shared spaces, and planning tools — ranked Top 15 among 40+ teams at a hackathon",
-    tags: ["React.js", "Firebase", "Python"],
-    image: "/studyplatform.png",
+    description: "AI-enabled Study Portal with quiz games, leaderboards, shared spaces, and planning tools — ranked Top 15 among 40+ teams at a hackathon. Currently in active development; UI/UX prototype available.",
+    tags: ["UI/UX", "Figma", "In Development"],
+    image: `${base}studyplatform.png`,
     demoUrl: "https://www.figma.com/design/zuawz1ZyQcdXMbgDLle942/Untitled?node-id=0-1&t=ZgwrMjuDUCxNZNwL-1",
     githubUrl: "",
-    techStack: ["React.js", "Firebase", "Python"]
+    techStack: ["React.js", "Firebase", "Python", "Figma"]
   },
   {
     id: 3,
     title: "Travelo",
     description: "AI-based budget and interest-based trip recommendation system, achieving 90% user satisfaction from 50 users during QA testing",
     tags: ["Full-Stack", "AI", "UX"],
-    image: "https://themewagon.com/wp-content/uploads/2020/02/direngine.jpg",
+    image: `${base}travelo.png`,
     demoUrl: "https://tripstar-byakp.netlify.app/",
     githubUrl: "https://github.com/Aryan-01-star/Travel-Website.git",
     techStack: ["HTML", "CSS", "JS", "API"]
@@ -49,7 +51,7 @@ const projects: Project[] = [
     title: "E-Commerce UI",
     description: "Conceptualized and designed a modern E-Commerce UI/UX, focusing on intuitive navigation and a visually appealing shopping experience",
     tags: ["UI/UX", "Figma", "Web Design"],
-    image: "/ecommerce.png",
+    image: `${base}ecommerce.png`,
     demoUrl: "https://www.figma.com/proto/k2ltZi6GB8VBaZnYKDsAhE/Kirti2024?node-id=32-16&starting-point-node-id=32%3A16&t=GYpDwZf1DFuTstWP-1",
     githubUrl: "",
     techStack: ["Figma", "Web Design", "UI/UX"]
@@ -59,7 +61,7 @@ const projects: Project[] = [
     title: "Portfolio",
     description: "This very site — a minimal, modern portfolio built with React, TypeScript, and Tailwind CSS with 3D Spline animations",
     tags: ["React", "TypeScript", "Tailwind"],
-    image: "/portfolio.png",
+    image: `${base}portfolio.png`,
     demoUrl: "#",
     githubUrl: "",
     techStack: ["React", "TypeScript", "Tailwind CSS"]
