@@ -36,7 +36,7 @@ export default function WorldMap({
     const map = new DottedMap({ height: 100, grid: 'diagonal' });
     return map.getSVG({
       radius: 0.22,
-      color: '#ffffff3f',
+      color: '#ffffff',
       shape: 'circle',
       backgroundColor: 'transparent',
     });
