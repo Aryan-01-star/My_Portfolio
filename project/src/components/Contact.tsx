@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, ArrowUpRight, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import WorldMap from './ui/world-map';
@@ -17,9 +17,9 @@ const socials = [
     handle: 'Aryan Kumar P',
   },
   {
-    label: 'Twitter',
+    label: 'X',
     href: 'https://x.com/Aryankp01',
-    icon: Twitter,
+    icon: X,
     handle: '@Aryankp01',
   },
   {
