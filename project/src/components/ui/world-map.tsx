@@ -27,11 +27,10 @@ const createCurvedPath = (
 
 export default function WorldMap({
   dots = [],
-  lineColor = '#a955f7',
+  lineColor = '#8b5cf6', // updated darker premium purple
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
 
-  // Memoize the expensive DottedMap SVG generation
   const svgMap = useMemo(() => {
     const map = new DottedMap({ height: 100, grid: 'diagonal' });
     return map.getSVG({
@@ -47,7 +46,6 @@ export default function WorldMap({
     [svgMap]
   );
 
-  // Pre-compute all points
   const computedDots = useMemo(
     () =>
       dots.map((dot) => ({
@@ -67,18 +65,30 @@ export default function WorldMap({
         width="1056"
         draggable={false}
       />
+
       <svg
         ref={svgRef}
         viewBox="0 0 800 400"
         className="w-full h-full absolute inset-0 pointer-events-none select-none"
       >
         <defs>
+          {/* Premium gradient */}
           <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="white" stopOpacity="0" />
-            <stop offset="5%" stopColor={lineColor} stopOpacity="1" />
-            <stop offset="95%" stopColor={lineColor} stopOpacity="1" />
-            <stop offset="100%" stopColor="white" stopOpacity="0" />
+            <stop offset="0%" stopColor="#4c1d95" stopOpacity="0" />
+            <stop offset="20%" stopColor="#7c3aed" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="#8b5cf6" stopOpacity="1" />
+            <stop offset="80%" stopColor="#7c3aed" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#4c1d95" stopOpacity="0" />
           </linearGradient>
+
+          {/* Glow effect */}
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
 
         {computedDots.map((dot, i) => (
@@ -87,15 +97,29 @@ export default function WorldMap({
               d={createCurvedPath(dot.start, dot.end)}
               fill="none"
               stroke="url(#path-gradient)"
-              strokeWidth="1"
+              strokeWidth="1.5"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 1, delay: 0.5 * i, ease: 'easeOut' }}
+              transition={{ duration: 1.2, delay: 0.4 * i, ease: 'easeOut' }}
             />
-            {/* Start dot */}
-            <circle cx={dot.start.x} cy={dot.start.y} r="2" fill={lineColor} />
-            {/* End dot */}
-            <circle cx={dot.end.x} cy={dot.end.y} r="2" fill={lineColor} />
+
+            {/* Start dot with glow */}
+            <circle
+              cx={dot.start.x}
+              cy={dot.start.y}
+              r="2.5"
+              fill={lineColor}
+              filter="url(#glow)"
+            />
+
+            {/* End dot with glow */}
+            <circle
+              cx={dot.end.x}
+              cy={dot.end.y}
+              r="2.5"
+              fill={lineColor}
+              filter="url(#glow)"
+            />
           </g>
         ))}
       </svg>
