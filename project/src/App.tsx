@@ -19,6 +19,7 @@ const Divider = () => (
 function App() {
   return (
     <Router>
+      <Navbar />
       <div className="bg-surface min-h-screen overflow-x-hidden text-white relative">
         {/* Layer 1: Ambient glows — smaller on mobile */}
         <div className="fixed inset-0 pointer-events-none z-0">
@@ -31,8 +32,6 @@ function App() {
           <Meteors number={5} />
         </div>
 
-        {/* Layer 3: Single glass panel for all content */}
-        <Navbar />
         <main className="relative z-10">
           <Hero />
           <Suspense fallback={null}>

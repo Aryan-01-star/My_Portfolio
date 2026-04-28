@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Award, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -122,6 +122,8 @@ const Certifications = () => {
               {certifications.map((_, index) => (
                 <button
                   key={index}
+                  type="button"
+                  aria-label={`Go to certification ${index + 1}`}
                   onClick={() => setCurrentIndex(index)}
                   className={`h-1 rounded-full transition-all duration-300 ${
                     index === currentIndex
@@ -133,12 +135,16 @@ const Certifications = () => {
             </div>
             <div className="flex items-center space-x-2">
               <button
+                type="button"
+                aria-label="Previous certification"
                 onClick={prev}
                 className="p-2 rounded-full border border-white/10 text-gray-400 active:scale-95 transition-all"
               >
                 <ChevronLeft size={14} />
               </button>
               <button
+                type="button"
+                aria-label="Next certification"
                 onClick={next}
                 className="p-2 rounded-full border border-white/10 text-gray-400 active:scale-95 transition-all"
               >

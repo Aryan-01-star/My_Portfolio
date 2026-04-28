@@ -6,8 +6,19 @@ export const useActiveSection = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('section[id]');
-      const scrollPosition = window.scrollY + 100;
+      if (sections.length === 0) return;
 
+      const nearBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 80;
+
+      if (nearBottom) {
+        const lastId = sections[sections.length - 1].getAttribute('id') || '';
+        setActiveSection(lastId);
+        return;
+      }
+
+      const scrollPosition = window.scrollY + 100;
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
         const sectionHeight = section.clientHeight;

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Code, Server, Wrench, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Code, Server, Wrench, BookOpen, ChevronLeft, ChevronRight, type LucideIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { PinContainer } from './ui/3d-pin';
@@ -31,7 +31,7 @@ const skillsData = [
 const SkillCardContent = ({ title, skills, icon: Icon }: {
   title: string;
   skills: string[];
-  icon: any;
+  icon: LucideIcon;
 }) => (
   <div className="p-5 rounded-2xl border border-white/5 bg-white/[0.02]">
     <div className="flex items-center space-x-3 mb-4">
@@ -56,7 +56,7 @@ const SkillCardContent = ({ title, skills, icon: Icon }: {
 const DesktopSkillCard = ({ title, skills, icon: Icon }: {
   title: string;
   skills: string[];
-  icon: any;
+  icon: LucideIcon;
 }) => (
   <div className="h-[22rem] w-full flex items-center justify-center">
     <PinContainer title={title}>
@@ -139,6 +139,8 @@ const Skills = () => {
               {skillsData.map((_, index) => (
                 <button
                   key={index}
+                  type="button"
+                  aria-label={`Go to skill category ${index + 1}`}
                   onClick={() => setCurrentIndex(index)}
                   className={`h-1 rounded-full transition-all duration-300 ${
                     index === currentIndex
@@ -150,12 +152,16 @@ const Skills = () => {
             </div>
             <div className="flex items-center space-x-2">
               <button
+                type="button"
+                aria-label="Previous skill category"
                 onClick={prev}
                 className="p-2 rounded-full border border-white/10 text-gray-400 active:scale-95 transition-all"
               >
                 <ChevronLeft size={14} />
               </button>
               <button
+                type="button"
+                aria-label="Next skill category"
                 onClick={next}
                 className="p-2 rounded-full border border-white/10 text-gray-400 active:scale-95 transition-all"
               >

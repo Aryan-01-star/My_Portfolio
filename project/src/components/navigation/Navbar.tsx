@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { NavLogo } from './NavLogo';
 import { MobileMenu } from './MobileMenu';
@@ -17,61 +18,42 @@ const navItems = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const activeSection = useActiveSection();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  return createPortal(
+    <nav
+      className="fixed top-8 left-1/2 -translate-x-1/2 z-[100] h-[60px] w-[calc(100%-24px)] max-w-[1120px] rounded-2xl bg-transparent"
+    >
+      <div className="px-4 sm:px-6 h-full">
+        <div className="flex items-center justify-between h-full">
+          <NavLogo />
 
-  return (
-    <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-surface/80 backdrop-blur-xl border-b border-white/5'
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <NavLogo />
+          {/* Desktop Navigation — Floating Dock */}
+          <FloatingDockNav items={navItems} activeSection={activeSection} />
 
-            {/* Desktop Navigation — Floating Dock */}
-            <FloatingDockNav items={navItems} activeSection={activeSection} />
-
-            {/* Mobile Menu Button */}
-            <button
-              type="button"
-              className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <MobileMenu
-              isOpen={isOpen}
-              activeSection={activeSection}
-              navItems={navItems}
-              onClose={() => setIsOpen(false)}
-            />
-          )}
-        </AnimatePresence>
-      </motion.nav>
-
-    </>
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isOpen && (
+          <MobileMenu
+            activeSection={activeSection}
+            navItems={navItems}
+            onClose={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+    </nav>,
+    document.body
   );
 };

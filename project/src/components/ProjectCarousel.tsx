@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Github, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -173,6 +173,8 @@ const ProjectCarousel = () => {
           {projects.map((_, index) => (
             <button
               key={index}
+              type="button"
+              aria-label={`Go to project ${index + 1}`}
               onClick={() => setCurrentIndex(index)}
               className={`h-1 rounded-full transition-all duration-300 ${
                 index === currentIndex
@@ -185,12 +187,16 @@ const ProjectCarousel = () => {
 
         <div className="flex items-center space-x-2">
           <button
+            type="button"
+            aria-label="Previous project"
             onClick={prevSlide}
             className="p-2 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-all"
           >
             <ChevronLeft size={16} />
           </button>
           <button
+            type="button"
+            aria-label="Next project"
             onClick={nextSlide}
             className="p-2 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-all"
           >

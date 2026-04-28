@@ -2,18 +2,16 @@ import { motion } from 'framer-motion';
 import { NavLink } from './NavLink';
 
 interface MobileMenuProps {
-  isOpen: boolean;
   activeSection: string;
   navItems: Array<{ id: string; label: string; }>;
   onClose: () => void;
 }
 
 export const MobileMenu = ({
-  isOpen,
   activeSection,
   navItems,
-  onClose
-}) => {
+  onClose,
+}: MobileMenuProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, height: 0 }}
@@ -23,7 +21,7 @@ export const MobileMenu = ({
       className="md:hidden bg-surface/95 backdrop-blur-xl border-t border-white/5"
     >
       <div className="px-4 pt-2 pb-4 space-y-1">
-        {navItems.map((item) => (
+        {navItems.map((item: { id: string; label: string }) => (
           <NavLink
             key={item.id}
             {...item}

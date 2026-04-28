@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight, X } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUpRight, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import WorldMap from './ui/world-map';

@@ -13,8 +13,8 @@ export const NavLink = ({
   label,
   isActive,
   onClick,
-  isMobile = false
-}) => {
+  isMobile = false,
+}: NavLinkProps) => {
   const baseStyles = "cursor-pointer transition-all duration-300 text-sm";
   const mobileStyles = "block py-3 px-4 rounded-lg";
   const desktopStyles = "inline-block py-1 px-3 rounded-full";

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { Eye, ArrowDown } from 'lucide-react';
+import { Eye, ArrowDown, Linkedin } from 'lucide-react';
 import { HoverBorderGradient } from './ui/hover-border-gradient';
 import { PointerHighlight } from './ui/pointer-highlight';
 import { EncryptedText } from './ui/encrypted-text';
@@ -10,7 +10,7 @@ import DevSetup from './DevSetup';
 const Hero: React.FC = () => {
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 lg:pt-4 lg:items-start relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center pt-28 lg:pt-28 lg:items-start relative overflow-hidden">
       {/* Lightweight ambient glows — no blur filter */}
       <div className="absolute top-0 left-1/4 w-[350px] h-[350px] sm:w-[700px] sm:h-[700px] glow-purple rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] glow-blue rounded-full pointer-events-none" />
@@ -97,6 +97,15 @@ const Hero: React.FC = () => {
                 <span>View Projects</span>
               </HoverBorderGradient>
             </Link>
+            <a
+              href="https://linkedin.com/in/aryan-k-pandey/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 hover:text-purple-200 hover:border-purple-400/60 transition-colors"
+            >
+              <Linkedin size={18} />
+            </a>
           </motion.div>
         </motion.div>
 
@@ -104,7 +113,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
-          className="relative lg:w-1/2 w-full h-[35vh] sm:h-[50vh] lg:h-[70vh] flex items-center justify-center mt-8 sm:mt-16 lg:mt-40"
+          className="relative lg:w-1/2 w-full h-[35vh] sm:h-[50vh] lg:h-[70vh] flex items-center justify-center mt-6 sm:mt-12 lg:mt-20"
         >
           <DevSetup />
         </motion.div>
