@@ -58,7 +58,7 @@ const DesktopSkillCard = ({ title, skills, icon: Icon }: {
   skills: string[];
   icon: LucideIcon;
 }) => (
-  <div className="h-[18rem] w-full flex items-center justify-center">
+  <div className="h-[14rem] w-full flex items-center justify-center">
     <PinContainer title={title}>
       <div className="flex flex-col p-4 tracking-tight w-[16rem] h-[13rem]">
         <div className="flex items-center space-x-3 mb-3">
