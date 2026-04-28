@@ -28,15 +28,15 @@ const CertCardContent = ({ title, issuer, year }: {
   issuer: string;
   year: string;
 }) => (
-  <div className="p-5 rounded-2xl border border-white/5 bg-white/[0.02]">
+  <div className="p-5 rounded-2xl border border-white/15 bg-surface-overlay shadow-lg shadow-black/30">
     <div className="flex items-center gap-3 mb-3">
-      <div className="p-2 rounded-lg bg-purple-500/10 shrink-0">
-        <Award size={18} className="text-purple-400" />
+      <div className="p-2 rounded-lg bg-purple-500/15 shrink-0">
+        <Award size={18} className="text-purple-300" />
       </div>
-      <span className="text-xs text-purple-400 font-medium tracking-wider">{year}</span>
+      <span className="text-xs text-purple-300 font-semibold tracking-wider">{year}</span>
     </div>
-    <h3 className="text-sm font-medium text-white leading-snug mb-2">{title}</h3>
-    <p className="text-xs text-gray-500">Issued by {issuer}</p>
+    <h3 className="text-base font-semibold text-white leading-snug mb-2">{title}</h3>
+    <p className="text-xs text-gray-300">Issued by <span className="text-gray-100 font-medium">{issuer}</span></p>
   </div>
 );
 
@@ -83,17 +83,17 @@ const Certifications = () => {
                 <div className="flex flex-col p-2 w-[13rem] h-[10rem] justify-between">
                   <div>
                     <div className="flex items-center gap-2 mb-3">
-                      <div className="p-1.5 rounded-lg bg-purple-500/10 shrink-0">
-                        <Award size={16} className="text-purple-400" />
+                      <div className="p-1.5 rounded-lg bg-purple-500/15 shrink-0">
+                        <Award size={16} className="text-purple-300" />
                       </div>
-                      <span className="text-[10px] text-purple-400 font-medium tracking-wider">{cert.year}</span>
+                      <span className="text-xs text-purple-300 font-semibold tracking-wider">{cert.year}</span>
                     </div>
-                    <h3 className="text-sm font-medium text-white leading-snug">
+                    <h3 className="text-[15px] font-semibold text-white leading-snug">
                       {cert.title}
                     </h3>
                   </div>
-                  <p className="text-xs text-gray-500 mt-2">
-                    Issued by {cert.issuer}
+                  <p className="text-xs text-gray-300 mt-2">
+                    Issued by <span className="text-gray-100 font-medium">{cert.issuer}</span>
                   </p>
                 </div>
               </PinContainer>

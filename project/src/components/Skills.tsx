@@ -33,18 +33,18 @@ const SkillCardContent = ({ title, skills, icon: Icon }: {
   skills: string[];
   icon: LucideIcon;
 }) => (
-  <div className="p-5 rounded-2xl border border-white/5 bg-white/[0.02]">
+  <div className="p-5 rounded-2xl border border-white/15 bg-surface-overlay shadow-lg shadow-black/30">
     <div className="flex items-center space-x-3 mb-4">
-      <div className="p-2 rounded-lg bg-purple-500/10">
-        <Icon className="text-purple-400" size={20} />
+      <div className="p-2 rounded-lg bg-purple-500/15">
+        <Icon className="text-purple-300" size={20} />
       </div>
-      <h3 className="text-base font-medium text-white">{title}</h3>
+      <h3 className="text-base font-semibold text-white">{title}</h3>
     </div>
     <div className="flex flex-wrap gap-2">
       {skills.map((skill) => (
         <span
           key={skill}
-          className="px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5"
+          className="px-3 py-1.5 text-xs text-gray-200 bg-white/[0.07] rounded-lg border border-white/10"
         >
           {skill}
         </span>
@@ -62,16 +62,16 @@ const DesktopSkillCard = ({ title, skills, icon: Icon }: {
     <PinContainer title={title}>
       <div className="flex flex-col p-4 tracking-tight w-[16rem]">
         <div className="flex items-center space-x-3 mb-3">
-          <div className="p-2 rounded-lg bg-purple-500/10">
-            <Icon className="text-purple-400" size={20} />
+          <div className="p-2 rounded-lg bg-purple-500/15">
+            <Icon className="text-purple-300" size={20} />
           </div>
-          <h3 className="font-bold text-base text-slate-100">{title}</h3>
+          <h3 className="font-bold text-base text-white">{title}</h3>
         </div>
         <div className="flex flex-wrap gap-2">
           {skills.map((skill) => (
             <span
               key={skill}
-              className="px-3 py-1.5 text-xs text-gray-300 bg-white/5 rounded-lg border border-white/5"
+              className="px-3 py-1.5 text-xs text-gray-200 bg-white/[0.07] rounded-lg border border-white/10"
             >
               {skill}
             </span>

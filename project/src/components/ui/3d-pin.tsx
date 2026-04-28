@@ -40,7 +40,7 @@ export const PinContainer = ({
             scale: hovered ? 0.8 : 1,
           }}
           transition={{ duration: 0.7 }}
-          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] bg-surface border border-white/[0.1] group-hover/pin:border-white/[0.2] overflow-hidden will-change-transform"
+          className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_24px_rgb(0_0_0/0.5)] bg-surface-overlay border border-white/15 group-hover/pin:border-purple-400/40 overflow-hidden will-change-transform"
         >
           <div className={`relative z-50 ${className}`}>{children}</div>
         </motion.div>
