@@ -77,10 +77,10 @@ const Certifications = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="h-[20rem] flex items-center justify-center"
+              className="h-[24rem] flex items-center justify-center"
             >
               <PinContainer title={cert.issuer}>
-                <div className="flex flex-col p-2 w-[13rem] h-[10rem] justify-between">
+                <div className="flex flex-col p-2 w-[13rem] h-[13rem] justify-between">
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <div className="p-1.5 rounded-lg bg-purple-500/15 shrink-0">
